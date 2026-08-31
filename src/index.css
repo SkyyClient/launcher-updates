@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 0, 240, 0.3) transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #000000;
+  color: #f0f0f0;
+  font-family: 'BBH Bogle', system-ui, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17px;
+  letter-spacing: 0.09em;
+  word-spacing: 0.12em;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(240, 0, 240, 0.45);
+}
+
+.glass {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #000000;
+}
+
+.glass-strong {
+  background: rgba(6, 6, 6, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #000000;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #8000F0, #C000F0, #F000F0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+/* Aparición del launcher desde el negro tras el fundido del loader. */
+@keyframes app-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.app-enter {
+  height: 100%;
+  animation: app-enter 0.7s ease-out both;
+}
+
+.bbh-bogle-regular {
+  font-family: 'BBH Bogle', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+select option {
+  background: #111111;
+  color: #f0f0f0;
+}
