@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { app } from 'electron'
 import { emitLog } from './console'
 
-const API_URL = 'https://skyyclient.vercel.app/api/online'
+const API_URL = 'https://skyyclient.site/api/online'
 const HEARTBEAT_INTERVAL = 1_000
 
 let deviceId: string = ''
@@ -25,8 +25,8 @@ async function heartbeat() {
       body: JSON.stringify({ deviceId, source: 'launcher' }),
     })
     if (res.ok) {
-      const data = (await res.json()) as { count: number }
-      onlineCount = data.count
+      const data = (await res.json()) as { count: number; launcher: number }
+      onlineCount = data.launcher ?? data.count
       sendToRenderer?.('online:count', onlineCount)
     }
   } catch {
